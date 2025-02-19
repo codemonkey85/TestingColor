@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider @ref="@mudThemeProvider"
+                  @bind-IsDarkMode="@isDarkMode"
+                  Theme="@myCustomTheme"/>
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar Dense>
+        <MudSwitch @bind-Value="@isDarkMode"
+                   Color="@Color.Primary"
+                   Label="@(isDarkMode
+                              ? "Dark"
+                              : "Light")"/>
+
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer MaxWidth="@MaxWidth.False">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
